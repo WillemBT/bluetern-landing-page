@@ -7,8 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -29,7 +29,7 @@
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        display: ['Oswald', 'sans-serif'],
+                        display: ['Inter', 'sans-serif'],
                     },
                     animation: {
                         'drift': 'drift 3s ease-in-out infinite',
@@ -71,24 +71,38 @@
             background-image: radial-gradient(rgba(50, 71, 157, 0.08) 1px, transparent 1px);
             background-size: 30px 30px;
         }
+        #navbar-bg {
+            background: transparent;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+        #navbar-bg.scrolled {
+            background: #f7f5ec; /* beige */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
     </style>
 </head>
 <body class="bg-beige text-neutral-slate font-sans selection:bg-brand-lightblue selection:text-brand-blue">
 
-    <!-- Top Data Ticker -->
-    <div class="w-full bg-brand-blue border-b border-brand-blue py-1 overflow-hidden whitespace-nowrap">
-        <div class="inline-block animate-marquee text-xs font-mono text-white/90">
-            <span class="mx-4">● WIND: NORTH SEA SHEAR: 12.4m/s [VERIFIED]</span>
-            <span class="mx-4 text-brand-orange font-bold">● IUU: DARK_TARGET_DETECTED [AIS_OFF]</span>
-            <span class="mx-4">● CELTIC SEA: TI_INTENSITY: 4.2% [AUDITED]</span>
-            <span class="mx-4 text-brand-orange font-bold">● PATROL: 42 DAYS CONTINUOUS</span>
-            <span class="mx-4 text-brand-green font-bold">● CO2_SAVED: 1,450 TONS</span>
-        </div>
-    </div>
-
     <!-- Navigation -->
     <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
-        <div class="glass-panel border-b border-brand-lightblue/20">
+        <div class="border-b border-brand-lightblue/20 transition-all duration-300" id="navbar-bg">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-20">
                     <!-- Logo -->
@@ -98,7 +112,7 @@
                         
                         <!-- Fallback Logo (displayed if img fails) -->
                         <div id="fallback-logo" class="flex items-center gap-2 md:hidden">
-                            <i data-feather="wind" class="text-brand-blue h-8 w-8"></i>
+                            <span class="material-icons text-brand-blue" style="font-size: 2rem;">air</span>
                             <span class="font-display font-bold text-2xl text-brand-blue tracking-wider">BLUE TERN</span>
                         </div>
                     </div>
@@ -115,15 +129,15 @@
 
                     <!-- CTA Button -->
                     <div class="hidden md:block">
-                        <a href="#contact" class="bg-brand-orange text-white hover:bg-brand-orange/90 px-6 py-2 rounded-sm font-mono text-sm font-bold transition-all duration-300 shadow-md">
-                            CONTACT US_
+                        <a href="#contact" class="bg-brand-blue text-white hover:bg-brand-blue/90 px-6 py-2 rounded-sm font-mono text-sm font-bold transition-all duration-300">
+                            CONTACT US
                         </a>
                     </div>
                     
                     <!-- Mobile Menu Button -->
                     <div class="-mr-2 flex md:hidden">
                         <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-brand-blue hover:bg-brand-lightblue/20 focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-                            <i data-feather="menu"></i>
+                            <span class="material-icons">menu</span>
                         </button>
                     </div>
                 </div>
@@ -141,122 +155,166 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden grid-bg">
-        <!-- Decorative blobs -->
-        <div class="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-brand-lightblue/20 rounded-full blur-[100px] pointer-events-none"></div>
-        <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-green/10 rounded-full blur-[100px] pointer-events-none"></div>
-
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden grid-bg" style="background-image: url('Gemini_Generated_Image_qewld4qewld4qewl.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        <div class="absolute inset-0 bg-beige/80 pointer-events-none"></div>
+        
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center z-10">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue/5 border border-brand-blue/20 text-brand-blue text-xs font-mono mb-8 tracking-wider shadow-sm">
-                <span class="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
-                ACTIVE MISSIONS: NORTH SEA & WEST AFRICA
+            <div class="inline-block mb-4 px-4 py-1 rounded-full border border-brand-blue/20 bg-brand-blue/5 text-brand-blue font-mono text-xs font-bold tracking-widest uppercase">
+                Maritime Data as a Service
             </div>
-
             <h1 class="text-5xl md:text-7xl font-display font-bold text-brand-blue leading-tight mb-6">
-                Autonomous Intelligence<br>
-                <span class="gradient-text">For the Blue Economy.</span>
+                Maritime Intelligence,<br>
+                <span class="gradient-text">Autonomous Infrastructure.</span>
             </h1>
 
             <p class="max-w-2xl text-lg md:text-xl text-neutral-slate mb-10 font-normal">
-                One platform, two critical missions. We provide <strong class="text-brand-blue">bankable metocean data</strong> for offshore wind 
-                and <strong class="text-brand-orange">persistent surveillance</strong> against illegal fishing (IUU).
-                <br>Powered by wind. Driven by AI.
+                Blue Tern deploys and operates USVs to capture the data you need. <br>
+                We deliver the intelligence, you simply subscribe to the feed.
             </p>
 
-            <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
-                <a href="#solutions" class="bg-brand-green text-white hover:bg-brand-green/90 px-8 py-4 rounded-sm font-bold tracking-wide transition-all shadow-soft flex items-center justify-center gap-2">
-                    EXPLORE SOLUTIONS
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#workflow" class="bg-brand-blue text-white hover:bg-brand-blue/90 px-8 py-3 rounded-sm font-mono text-sm font-bold transition-all shadow-lg hover:shadow-xl">
+                    HOW IT WORKS
                 </a>
-                <a href="#technology" class="bg-white text-brand-blue border border-brand-lightblue/50 hover:border-brand-blue hover:bg-brand-lightblue/10 px-8 py-4 rounded-sm font-bold transition-all flex items-center justify-center gap-2 shadow-sm">
-                    <i data-feather="cpu" class="w-4 h-4"></i>
-                    PLATFORM SPECS
+                <a href="#solutions" class="bg-white text-brand-blue border border-brand-blue/30 hover:bg-brand-blue/5 px-8 py-3 rounded-sm font-mono text-sm font-bold transition-all">
+                    VIEW PAYLOADS
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Use Cases Section (Split) -->
-    <section id="solutions" class="py-24 relative">
+    <!-- Workflow Section -->
+    <section id="workflow" class="py-24 relative border-y border-brand-lightblue/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-display font-bold text-brand-blue mb-4">Dual Mission Capability</h2>
-                <div class="h-1 w-20 bg-brand-green mx-auto rounded-full"></div>
-                <p class="text-neutral-slate mt-4 text-lg">Leveraging "Salt & Steel" durability for two distinct markets.</p>
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-brand-blue mb-4">We Own the Fleet, You Own the Data.</h2>
+                <p class="text-neutral-slate text-lg max-w-2xl mx-auto">
+                    Blue Tern removes the capital risk from the equation. You define the mission. We finance, insure, and pilot the vessels. 
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                <div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gradient-to-r from-brand-blue/0 via-brand-blue/20 to-brand-blue/0 z-0"></div>
+
+                <div class="glass-panel p-8 md:p-12 rounded-lg border border-brand-lightblue/30 hover:shadow-xl transition-all group">
+                        <span class="material-icons" style="font-size: 2.5rem; color:#32479d">ads_click</span>
+                    <h3 class="text-xl font-bold text-brand-blue mb-2">You define the mission</h3>
+                    <p class="text-sm text-neutral-slate">
+                        Define your target zone and data requirements. Together, we adjust the payload.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-8 md:p-12 rounded-lg border border-brand-lightblue/30 hover:shadow-xl transition-all group">
+                        <span class="material-icons" style="font-size: 2.5rem; color:#32479d">sailing</span>
+                    <h3 class="text-xl font-bold text-brand-blue mb-2">We Deploy</h3>
+                    <p class="text-sm text-neutral-slate">
+                        Blue Tern handles logistics, launch, and 24/7 remote piloting. No fuel, no crew, no hassle.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-8 md:p-12 rounded-lg border border-brand-lightblue/30 hover:shadow-xl transition-all group">
+                        <span class="material-icons" style="font-size: 2.5rem; color:#32479d">tips_and_updates</span>
+                    <h3 class="text-xl font-bold text-brand-blue mb-2">You get the insights</h3>
+                    <p class="text-sm text-neutral-slate">
+                        Receive real-time alerts, compiled reports and raw datastreams.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section (Split) -->
+    <section id="solutions" class="py-24 relative border-y border-brand-lightblue/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-brand-blue mb-4">Multi Mission Capability</h2>
+                <p class="text-neutral-slate mt-4 text-lg">Together, we optimize the payload for your offshore mission objectives.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
-                <!-- USE CASE 1: METOCEAN -->
-                <div class="glass-panel p-8 md:p-12 rounded-lg border-t-4 border-brand-green hover:shadow-xl transition-all group">
+                <!-- USE CASE 1: IUU FISHING -->
+                <div class="glass-panel p-8 md:p-12 rounded-lg border border-brand-orange/30 hover:shadow-xl transition-all group">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="bg-brand-orange/10 p-4 rounded-lg">
+                            <span class="material-icons text-brand-orange" style="font-size: 2rem;">phishing</span>
+                        </div>
+                        <span class="text-xs font-mono border border-brand-orange/30 text-brand-orange px-2 py-1 rounded bg-brand-orange/5">SECURITY</span>
+                    </div>
+                    <div class="mb-8 overflow-hidden rounded-lg aspect-video bg-neutral-slate/10 border border-brand-orange/20">
+                        <img 
+                            src="Gemini_Generated_Image_qewld4qewld4qewl.png" 
+                            alt="Autonomous USV detecting illegal fishing vessel" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        >
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-brand-blue mb-4 group-hover:text-brand-orange transition-colors">IUU Fishing Enforcement</h3>
+                    <p class="text-neutral-slate mb-6 leading-relaxed min-h-[80px]">
+                        Silent, persistent surveillance to identify and record illegal fishing activity.
+                    </p>
+
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <span class="material-icons text-brand-orange mt-1" style="font-size: 1.25rem;">check_circle</span>
+                            <div>
+                                <strong class="text-brand-blue block group-hover:text-brand-orange transition-colors">Silent Platform</strong>
+                                <span class="text-sm text-neutral-slate">Zero motor noise allows covert acoustic monitoring.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-icons text-brand-orange mt-1" style="font-size: 1.25rem;">check_circle</span>
+                            <div>
+                                <strong class="text-brand-blue block group-hover:text-brand-orange transition-colors">Admissible Evidence</strong>
+                                <span class="text-sm text-neutral-slate">Tamper-proof visual & acoustic logs for effective prosecution.</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a href="#contact" class="inline-flex items-center gap-2 text-brand-orange font-mono text-sm font-bold hover:underline">
+                        REQUEST SURVEILLANCE DEMO <span class="material-icons" style="font-size: 1rem; vertical-align: middle;">arrow_forward</span>
+                    </a>
+                </div>
+
+                <!-- USE CASE 2: METOCEAN -->
+                <div class="glass-panel p-8 md:p-12 rounded-lg border border-brand-green/30 hover:shadow-xl transition-all group">
                     <div class="flex justify-between items-start mb-8">
                         <div class="bg-brand-green/10 p-4 rounded-lg">
-                            <i data-feather="wind" class="w-8 h-8 text-brand-green"></i>
+                            <span class="material-icons text-brand-green" style="font-size: 2rem;">air</span>
                         </div>
                         <span class="text-xs font-mono border border-brand-green/30 text-brand-green px-2 py-1 rounded bg-brand-green/5">ENERGY</span>
                     </div>
-                    
+                    <div class="mb-8 overflow-hidden rounded-lg aspect-video bg-neutral-slate/10 border border-brand-orange/20">
+                        <img 
+                            src="Gemini_Generated_Image_k22oi5k22oi5k22o.png" 
+                            alt="Autonomous USV detecting illegal fishing vessel" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        >
+                    </div>
                     <h3 class="text-2xl font-display font-bold text-brand-blue mb-4 group-hover:text-brand-green transition-colors">Offshore Wind Metocean</h3>
                     <p class="text-neutral-slate mb-6 leading-relaxed min-h-[80px]">
-                        De-risk your Final Investment Decision (FID) with bankable wind, wave, and current data. 
+                        Attract renewable energy investors with bankable wind, wave, and current data. 
                         Zero emissions, zero mooring costs, and deepwater ready.
                     </p>
 
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-start gap-3">
-                            <i data-feather="check-circle" class="w-5 h-5 text-brand-green mt-1"></i>
+                            <span class="material-icons text-brand-green mt-1" style="font-size: 1.25rem;">check_circle</span>
                             <div>
-                                <strong class="text-brand-blue block">Bankable Data</strong>
+                                <strong class="text-brand-blue block group-hover:text-brand-green transition-colors">Bankable Data</strong>
                                 <span class="text-sm text-neutral-slate">DNV-compliant LiDAR & Wave metrics.</span>
                             </div>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-feather="check-circle" class="w-5 h-5 text-brand-green mt-1"></i>
+                            <span class="material-icons text-brand-green mt-1" style="font-size: 1.25rem;">check_circle</span>
                             <div>
-                                <strong class="text-brand-blue block">Active Persistence</strong>
+                                <strong class="text-brand-blue block group-hover:text-brand-green transition-colors">Active Persistence</strong>
                                 <span class="text-sm text-neutral-slate">Station-keeping without anchors in deep water.</span>
                             </div>
                         </li>
                     </ul>
 
                     <a href="#contact" class="inline-flex items-center gap-2 text-brand-green font-mono text-sm font-bold hover:underline">
-                        REQUEST METOCEAN PILOT <i data-feather="arrow-right" class="w-4 h-4"></i>
-                    </a>
-                </div>
-
-                <!-- USE CASE 2: IUU FISHING -->
-                <div class="glass-panel p-8 md:p-12 rounded-lg border-t-4 border-brand-orange hover:shadow-xl transition-all group">
-                    <div class="flex justify-between items-start mb-8">
-                        <div class="bg-brand-orange/10 p-4 rounded-lg">
-                            <i data-feather="shield" class="w-8 h-8 text-brand-orange"></i>
-                        </div>
-                        <span class="text-xs font-mono border border-brand-orange/30 text-brand-orange px-2 py-1 rounded bg-brand-orange/5">SECURITY</span>
-                    </div>
-                    
-                    <h3 class="text-2xl font-display font-bold text-brand-blue mb-4 group-hover:text-brand-orange transition-colors">IUU Fishing Enforcement</h3>
-                    <p class="text-neutral-slate mb-6 leading-relaxed min-h-[80px]">
-                        Silent, persistent surveillance to identify illegal fishing activity. 
-                        Detect "Dark Targets" (AIS off) acoustically and visually without risking crewed patrols.
-                    </p>
-
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start gap-3">
-                            <i data-feather="check-circle" class="w-5 h-5 text-brand-orange mt-1"></i>
-                            <div>
-                                <strong class="text-brand-blue block">Silent Sentinel</strong>
-                                <span class="text-sm text-neutral-slate">Zero motor noise allows covert acoustic monitoring.</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i data-feather="check-circle" class="w-5 h-5 text-brand-orange mt-1"></i>
-                            <div>
-                                <strong class="text-brand-blue block">Admissible Evidence</strong>
-                                <span class="text-sm text-neutral-slate">Tamper-proof visual & acoustic logs for prosecution.</span>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <a href="#contact" class="inline-flex items-center gap-2 text-brand-orange font-mono text-sm font-bold hover:underline">
-                        REQUEST SURVEILLANCE DEMO <i data-feather="arrow-right" class="w-4 h-4"></i>
+                        REQUEST METOCEAN PILOT <span class="material-icons" style="font-size: 1rem; vertical-align: middle;">arrow_forward</span>
                     </a>
                 </div>
 
@@ -264,122 +322,53 @@
         </div>
     </section>
 
-    <!-- Technology & Problem Section -->
-    <section id="technology" class="py-24 bg-white/50 border-y border-brand-lightblue/20">
+    <!-- Technology Section -->
+    <section id="technology" class="py-24 bg-beige border-y border-brand-lightblue/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-16">
-                <h2 class="text-3xl md:text-4xl font-display font-bold text-brand-blue mb-4">The Platform Advantage</h2>
-                <p class="text-neutral-slate text-lg">Why a "Salt & Steel" USV outperforms buoys and patrol ships.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                
-                <!-- Card 1: Persistence -->
-                <div class="bg-white p-8 rounded-lg shadow-soft border-l-4 border-brand-green md:col-span-2 relative overflow-hidden group">
-                    <div class="absolute right-0 top-0 w-64 h-64 bg-brand-green/5 rounded-full blur-3xl group-hover:bg-brand-green/10 transition-all"></div>
-                    <div class="relative z-10">
-                        <div class="bg-brand-green/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                            <i data-feather="battery-charging" class="text-brand-green"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-brand-blue mb-3">Unlimited Range & Persistence</h3>
-                        <p class="text-neutral-slate mb-6 leading-relaxed max-w-lg">
-                            Whether holding station for wind data or patrolling an MPA (Marine Protected Area) for poachers, 
-                            Blue Tern uses the wind as its primary fuel. We stay at sea for months, not days.
-                        </p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-display font-bold text-brand-blue mb-6">
+                        Engineered for <br>Uninterrupted Data.
+                    </h2>
+                    <p class="text-neutral-slate text-lg mb-6 leading-relaxed">
+                        To guarantee a reliable data stream, we built a platform capable of surviving where others fail. 
+                    </p>
+                    <div class="space-y-6">
                         <div class="flex gap-4">
-                             <div class="bg-brand-blue px-4 py-2 rounded text-xs font-mono text-white">
-                                100% RENEWABLE
-                             </div>
-                             <div class="bg-brand-blue/10 px-4 py-2 rounded text-xs font-mono text-brand-blue border border-brand-blue/20">
-                                SEA STATE 6+ SURVIVAL
-                             </div>
+                                <span class="material-icons text-brand-blue">all_inclusive</span>
+                            <div>
+                                <h4 class="font-bold text-brand-blue">Unlimited Persistence</h4>
+                                <p class="text-sm text-neutral-slate mt-1">
+                                    Wind propulsion and solar-powered payloads mean zero fuel costs. <br> The "eyes on the water" never blink.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                                <span class="material-icons text-brand-blue">flag</span>
+                            <div>
+                                <h4 class="font-bold text-brand-blue">Sovereign Control</h4>
+                                <p class="text-sm text-neutral-slate mt-1">
+                                    While we operate the vessel, the data is yours. We integrate directly into national MCS centers or private servers.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 2: Cost -->
-                <div class="bg-white p-8 rounded-lg shadow-soft border-l-4 border-brand-blue">
-                    <div class="bg-brand-blue/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                        <i data-feather="dollar-sign" class="text-brand-blue"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-blue mb-3">Fractional Cost</h3>
-                    <p class="text-sm text-neutral-slate leading-relaxed">
-                        <strong class="text-brand-blue">Wind:</strong> No mooring costs ($300k savings).<br>
-                        <strong class="text-brand-orange">Security:</strong> 90% cheaper than crewed patrol vessels ($50k/day).
-                    </p>
-                </div>
-
-                <!-- Card 3: The Data Audit -->
-                <div class="bg-white p-8 rounded-lg shadow-soft border-l-4 border-brand-orange md:col-span-3">
-                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-                        <div>
-                            <div class="bg-brand-orange/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                                <i data-feather="database" class="text-brand-orange"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-brand-blue mb-3">Fintech-Grade Data Integrity</h3>
-                            <p class="text-sm text-neutral-slate leading-relaxed max-w-2xl">
-                                Whether it's wind speed for a bank or a photo of an illegal trawler for a court, the data must be unassailable. 
-                                We apply fintech-level audit trails and chain-of-custody protocols to every byte we transmit.
-                            </p>
-                        </div>
-                        <div class="flex-shrink-0 grid grid-cols-2 gap-4">
-                            <div class="text-center p-4 bg-brand-blue/5 rounded border border-brand-blue/10">
-                                <div class="text-2xl font-bold text-brand-blue">DNV</div>
-                                <div class="text-xs text-brand-green font-bold">COMPLIANT</div>
-                            </div>
-                            <div class="text-center p-4 bg-brand-blue/5 rounded border border-brand-blue/10">
-                                <div class="text-2xl font-bold text-brand-blue">AES-256</div>
-                                <div class="text-xs text-brand-green font-bold">ENCRYPTED</div>
-                            </div>
-                        </div>
+                <div class="relative">
+                    <div class="aspect-[4/3] bg-white rounded-lg shadow-soft border border-brand-lightblue/30 p-2 relative overflow-hidden flex items-center justify-center">
+                        <img 
+                            src="diagram.jpg" 
+                            alt="Blue Tern USV Platform Schematic" 
+                            class="w-full h-full object-cover rounded-md"
+                        >
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- The Team Bridge (Salt & Steel vs Fintech) -->
-    <section id="about" class="py-24 bg-brand-blue text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-display font-bold text-white">The Team Behind the Tech</h2>
-                <p class="text-brand-lightblue mt-4 max-w-2xl mx-auto text-lg">
-                    Why do we win in the North Sea? Because we don't just build robots. 
-                    We combine centuries of maritime engineering with the speed of modern finance.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <!-- Willem -->
-                <div class="bg-white/10 p-8 md:p-12 relative group hover:bg-white/15 transition-colors rounded-sm backdrop-blur-sm border border-white/10">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <i data-feather="anchor" class="w-24 h-24 text-white"></i>
-                    </div>
-                    <div class="text-brand-green font-mono text-sm mb-2 font-bold tracking-wider">ENGINEERING LEAD</div>
-                    <h3 class="text-3xl font-display font-bold text-white mb-4">Willem</h3>
-                    <p class="text-xl text-brand-lightblue font-serif italic mb-6">"Salt & Steel"</p>
-                    <p class="text-gray-200 leading-relaxed">
-                        Ensures the USV is a survival-grade maritime asset. Designed for Sea State 6, self-righting, and watertight redundancy. 
-                        Crucial for both deepwater wind and long-range ocean patrols.
-                    </p>
-                </div>
-
-                <!-- Christoph -->
-                <div class="bg-white/10 p-8 md:p-12 relative group hover:bg-white/15 transition-colors rounded-sm backdrop-blur-sm border border-white/10">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <i data-feather="bar-chart-2" class="w-24 h-24 text-brand-orange"></i>
-                    </div>
-                    <div class="text-brand-orange font-mono text-sm mb-2 font-bold tracking-wider">DATA LEAD</div>
-                    <h3 class="text-3xl font-display font-bold text-white mb-4">Christoph</h3>
-                    <p class="text-xl text-brand-lightblue font-serif italic mb-6">"Fintech Rigor"</p>
-                    <p class="text-gray-200 leading-relaxed">
-                        Ensures data is "Investment Grade" for banks and "Evidence Grade" for courts. 
-                        Christoph applies high-frequency trading analytics to clean signal noise and verify data integrity.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <!-- Operational Comparison Table -->
     <section id="economics" class="py-24">
@@ -393,30 +382,30 @@
                         <thead>
                             <tr class="bg-brand-blue text-white text-sm font-mono uppercase tracking-wider">
                                 <th class="p-6">Metric</th>
-                                <th class="p-6 bg-brand-blue border-x border-white/20">Blue Tern USV</th>
-                                <th class="p-6">Traditional Patrol/Survey</th>
+                                <th class="p-6 bg-brand-blue border-x border-white/20">Blue Tern wind powered USV</th>
+                                <th class="p-6">Conventional offshore Patrol or Survey vessel</th>
                             </tr>
                         </thead>
                         <tbody class="text-brand-blue divide-y divide-brand-lightblue/20">
                             <tr>
                                 <td class="p-6 font-bold">Daily Cost</td>
-                                <td class="p-6 bg-brand-green/5 text-brand-green font-bold border-x border-brand-lightblue/20">Low (DaaS/SaaS)</td>
-                                <td class="p-6 text-brand-orange">High ($25k - $50k/day)</td>
+                                <td class="p-6 bg-brand-green/5 text-brand-green border-x border-brand-lightblue/20"> < 1,500 USD/day</td>
+                                <td class="p-6 text-brand-blue"> > 15,000 USD/day</td>
                             </tr>
                             <tr>
                                 <td class="p-6 font-bold">Carbon Emissions</td>
-                                <td class="p-6 bg-brand-green/5 text-brand-green font-bold border-x border-brand-lightblue/20">Zero</td>
-                                <td class="p-6 text-brand-orange">10-20 Tons / Day</td>
+                                <td class="p-6 bg-brand-green/5 text-brand-green border-x border-brand-lightblue/20">Zero</td>
+                                <td class="p-6 text-brand-blue"> > 10 tons/day</td>
                             </tr>
                             <tr>
                                 <td class="p-6 font-bold">Acoustic Stealth</td>
-                                <td class="p-6 bg-brand-green/5 border-x border-brand-lightblue/20">Silent (Wind/Electric)</td>
-                                <td class="p-6">Noisy (Diesel Engine)</td>
+                                <td class="p-6 bg-brand-green/5 text-brand-green border-x border-brand-lightblue/20">Silent (waves and rudder noise only)</td>
+                                <td class="p-6">Noisy (Diesel Engine + propellors)</td>
                             </tr>
                             <tr>
                                 <td class="p-6 font-bold">Endurance</td>
-                                <td class="p-6 bg-brand-green/5 border-x border-brand-lightblue/20">Months (Unlimited)</td>
-                                <td class="p-6">Weeks (Fuel/Crew Limit)</td>
+                                <td class="p-6 bg-brand-green/5 text-brand-green border-x border-brand-lightblue/20">Multiple months</td>
+                                <td class="p-6">Weeks (Fuel/Crew)</td>
                             </tr>
                         </tbody>
                     </table>
@@ -425,24 +414,63 @@
         </div>
     </section>
 
+    <!-- The Team Bridge (Salt & Steel vs Fintech) -->
+    <section id="about" class="py-24 bg-brand-blue text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-white">The Team Behind the Tech</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Willem -->
+                <div class="bg-white/10 p-8 md:p-12 relative group hover:bg-white/15 transition-colors rounded-sm backdrop-blur-sm border border-white/10">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <span class="material-icons text-white" style="font-size: 6rem;">anchor</span>
+                    </div>
+                    <div class="text-brand-green font-mono text-sm mb-2 font-bold tracking-wider">ENGINEERING LEAD</div>
+                    <h3 class="text-3xl font-display font-bold text-white mb-4">Willem</h3>
+                    <p class="text-xl text-brand-lightblue font-serif italic mb-6">"Salt & Steel"</p>
+                    <p class="text-gray-200 leading-relaxed">
+                        With a background in shipbuilding and civil engineering, Willem ensures the USV is an endurance maritime asset. Designed to survive Sea State 6, self-righting, and watertight redundancy. 
+                        Crucial for both long-range ocean patrols and offshore wind.
+                    </p>
+                </div>
+
+                <!-- Christoph -->
+                <div class="bg-white/10 p-8 md:p-12 relative group hover:bg-white/15 transition-colors rounded-sm backdrop-blur-sm border border-white/10">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <span class="material-icons text-white" style="font-size: 6rem;">bar_chart</span>
+                    </div>
+                    <div class="text-brand-orange font-mono text-sm mb-2 font-bold tracking-wider">DATA LEAD</div>
+                    <h3 class="text-3xl font-display font-bold text-white mb-4">Christoph</h3>
+                    <p class="text-xl text-brand-lightblue font-serif italic mb-6">"Fintech Rigor"</p>
+                    <p class="text-gray-200 leading-relaxed">
+                        With a background in financial and legal data analytics, Christoph ensures data streams are stable, reliable and secure. 
+                        Curcial for data sovereignty, evidence submissibility and offshore wind investments.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
-    <section id="contact" class="py-24 relative overflow-hidden bg-brand-lightblue/10">
+    <section id="contact" class="py-24 relative overflow-hidden bg-brand-blue border-y border-brand-lightblue">
         <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
-            <h2 class="text-4xl md:text-5xl font-display font-bold text-brand-blue mb-6">
+            <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">
                 Ready to Deploy?
             </h2>
-            <p class="text-xl text-neutral-slate mb-10">
-                Whether you need data for a wind farm or eyes on a protected zone.<br>
-                Blue Tern delivers intelligence without the infrastructure.
+            <p class="text-xl text-brand-lightblue mb-10">
+                Whether you need eyes on a protected zone or data for a wind farm,<br>
+                Blue Tern delivers intelligence and handles the infrastructure for you.
             </p>
             <form class="max-w-md mx-auto space-y-4">
                 <input type="email" placeholder="Enter your work email" class="w-full bg-white border border-brand-lightblue text-brand-blue px-6 py-4 rounded-sm focus:outline-none focus:border-brand-blue font-mono shadow-sm">
                 <div class="grid grid-cols-2 gap-4">
-                    <button type="submit" class="w-full bg-brand-green text-white font-bold px-4 py-4 rounded-sm hover:bg-brand-green/90 transition-all text-sm shadow-md">
-                        METOCEAN INQUIRY
-                    </button>
                     <button type="submit" class="w-full bg-brand-orange text-white font-bold px-4 py-4 rounded-sm hover:bg-brand-orange/90 transition-all text-sm shadow-md">
                         SECURITY INQUIRY
+                    </button>
+                    <button type="submit" class="w-full bg-brand-green text-white font-bold px-4 py-4 rounded-sm hover:bg-brand-green/90 transition-all text-sm shadow-md">
+                        METOCEAN INQUIRY
                     </button>
                 </div>
             </form>
@@ -458,13 +486,13 @@
                         <!-- Footer Logo -->
                         <img src="Logo - with text - blue-02.png" alt="Blue Tern Logo" class="h-8 w-auto" onerror="this.style.display='none'; document.getElementById('footer-fallback-logo').style.display='flex'">
                         <div id="footer-fallback-logo" class="hidden items-center gap-2">
-                             <i data-feather="wind" class="text-brand-blue h-6 w-6"></i>
+                             <span class="material-icons text-brand-blue" style="font-size: 1.5rem;">air</span>
                              <span class="font-display font-bold text-xl text-brand-blue">BLUE TERN</span>
                         </div>
                     </div>
                     <p class="text-brand-lightblue text-sm max-w-sm">
                         Maritime Intelligence as a Service.
-                        <br>Offshore Wind Data & IUU Enforcement.
+                        <br>IUU Enforcement & Offshore Wind Data.
                     </p>
                 </div>
                 <div>
@@ -486,17 +514,29 @@
             </div>
             <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-xs text-brand-lightblue">© 2026 Blue Tern. All rights reserved.</p>
-                <div class="flex items-center gap-4">
-                    <span class="text-xs font-mono text-brand-green border border-brand-green px-2 py-1 rounded bg-brand-green/10">ZERO EMISSION</span>
-                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Initialize Feather Icons
-        feather.replace();
-
+        // Navbar background toggle on scroll
+        const navbarBg = document.getElementById('navbar-bg');
+        const heroSection = document.querySelector('section.relative.min-h-screen');
+        
+        function updateNavbarBackground() {
+            const heroHeight = heroSection ? heroSection.offsetHeight : window.innerHeight;
+            if (window.scrollY > heroHeight - 100) {
+                navbarBg.classList.add('scrolled');
+            } else {
+                navbarBg.classList.remove('scrolled');
+            }
+        }
+        
+        // Update on scroll
+        window.addEventListener('scroll', updateNavbarBackground);
+        // Update on load
+        updateNavbarBackground();
+        
         // Smooth Scroll for Anchors
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
