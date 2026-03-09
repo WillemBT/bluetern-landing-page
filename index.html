@@ -108,10 +108,15 @@
                     <!-- Logo -->
                     <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
                         <!-- Use Image if available, fallback to Icon/Text -->
-                        <img src="Logo - with text - blue-02.png" alt="Blue Tern Logo" class="h-10 w-auto object-contain hidden md:block" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='flex'">
+                        <img 
+                            src="Logo - with text - blue-02.png" 
+                            alt="Blue Tern Logo" 
+                            class="h-10 w-auto object-contain"
+                            onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='flex'"
+                        >
                         
                         <!-- Fallback Logo (displayed if img fails) -->
-                        <div id="fallback-logo" class="flex items-center gap-2 md:hidden">
+                        <div id="fallback-logo" class="hidden items-center gap-2">
                             <span class="material-icons text-brand-blue" style="font-size: 2rem;">air</span>
                             <span class="font-display font-bold text-2xl text-brand-blue tracking-wider">BLUE TERN</span>
                         </div>
@@ -463,13 +468,47 @@
                 Whether you need eyes on a protected zone or data for a wind farm,<br>
                 Blue Tern delivers intelligence and handles the infrastructure for you.
             </p>
-            <form class="max-w-md mx-auto space-y-4">
-                <input type="email" placeholder="Enter your work email" class="w-full bg-white border border-brand-lightblue text-brand-blue px-6 py-4 rounded-sm focus:outline-none focus:border-brand-blue font-mono shadow-sm">
+            <form 
+                class="max-w-md mx-auto space-y-4"
+                action="https://www.formpost.eu/f/bf675b23"
+                method="POST"
+            >
+                <!-- Email field -->
+                <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="Enter your work email" 
+                    required
+                    class="w-full bg-white border border-brand-lightblue text-brand-blue px-6 py-4 rounded-sm focus:outline-none focus:border-brand-blue font-mono shadow-sm"
+                >
+
+                <!-- Message field -->
+                <textarea
+                    name="message"
+                    placeholder="Tell us briefly about your security or metocean needs"
+                    required
+                    class="w-full bg-white border border-brand-lightblue text-brand-blue px-6 py-4 rounded-sm focus:outline-none focus:border-brand-blue font-mono shadow-sm min-h-[120px]"
+                ></textarea>
+
+                <!-- Honeypot field for spam prevention -->
+                <input type="text" name="_gotcha" style="display:none;">
+
                 <div class="grid grid-cols-2 gap-4">
-                    <button type="submit" class="w-full bg-brand-orange text-white font-bold px-4 py-4 rounded-sm hover:bg-brand-orange/90 transition-all text-sm shadow-md">
+                    <!-- Each button sets inquiryType via name/value -->
+                    <button 
+                        type="submit" 
+                        name="inquiryType" 
+                        value="security"
+                        class="w-full bg-brand-orange text-white font-bold px-4 py-4 rounded-sm hover:bg-brand-orange/90 transition-all text-sm shadow-md"
+                    >
                         SECURITY INQUIRY
                     </button>
-                    <button type="submit" class="w-full bg-brand-green text-white font-bold px-4 py-4 rounded-sm hover:bg-brand-green/90 transition-all text-sm shadow-md">
+                    <button 
+                        type="submit" 
+                        name="inquiryType" 
+                        value="metocean"
+                        class="w-full bg-brand-green text-white font-bold px-4 py-4 rounded-sm hover:bg-brand-green/90 transition-all text-sm shadow-md"
+                    >
                         METOCEAN INQUIRY
                     </button>
                 </div>
@@ -546,6 +585,11 @@
                 });
             });
         });
+    </script>
+    <script 
+        data-goatcounter="https://bluetern.goatcounter.com/count"
+        async 
+        src="//gc.zgo.at/count.js">
     </script>
 </body>
 </html>
